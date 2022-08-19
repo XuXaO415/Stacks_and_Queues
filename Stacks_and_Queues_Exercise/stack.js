@@ -20,6 +20,15 @@ class Stack {
   /** push(val): add new value to end of the stack. Returns undefined. */
 
   push(val) {
+    const newNode = new Node(val);
+    if (this.isEmpty()) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      newNode.next = this.first;
+      this.first = newNode;
+    }
+    this.size++;
 
   }
 
@@ -39,7 +48,10 @@ class Stack {
   /** isEmpty(): return true if the stack is empty, otherwise false */
 
   isEmpty() {
-
+    if (this.size === 0) {
+      return true;
+    }
+    return false;
   }
 }
 
